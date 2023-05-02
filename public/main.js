@@ -1,7 +1,6 @@
 var thumbUp = document.getElementsByClassName("fa-thumbs-up");
 var trash = document.getElementsByClassName("fa-trash");
 var thumbDown = document.getElementsByClassName("fa-thumbs-down");
-let movie = document.querySelector("#movie")
 let movieTitle = document.querySelector('#movieTitle')
 const revealBtn = document.querySelector('#revealBtn')
 const randomBtn = document.querySelector('#randomBtn')
@@ -9,16 +8,17 @@ const randomBtn = document.querySelector('#randomBtn')
 console.log(revealBtn)
 console.log(randomBtn)
 
-let movies = ["https://giphy.com/embed/GA1sltMVrl4YJgMyh5", "https://giphy.com/embed/3o7aTp12gDff2llvfW", "https://giphy.com/embed/ZCU3YxmmD8lh6savbB", "https://giphy.com/embed/1x5PlNYHFkyL6", "https://giphy.com/embed/keTwQbbQwlNM2RNJsW", "https://giphy.com/embed/FydqYa93YtubC", "https://giphy.com/embed/44lnMVc88NugM", "https://giphy.com/embed/14ceV8wMLIGO6Q", "https://giphy.com/embed/jqVvLlshi2p8Y", "https://giphy.com/embed/TLjKs6uCH5A8U"]
+const movies = ["https://giphy.com/embed/GA1sltMVrl4YJgMyh5", "https://giphy.com/embed/3o7aTp12gDff2llvfW", "https://giphy.com/embed/ZCU3YxmmD8lh6savbB", "https://giphy.com/embed/1x5PlNYHFkyL6", "https://giphy.com/embed/keTwQbbQwlNM2RNJsW", "https://giphy.com/embed/FydqYa93YtubC", "https://giphy.com/embed/44lnMVc88NugM", "https://giphy.com/embed/14ceV8wMLIGO6Q", "https://giphy.com/embed/jqVvLlshi2p8Y", "https://giphy.com/embed/TLjKs6uCH5A8U"]
 
 let titles = ["The Godfather", "Mean Girls", "The Dark Knight", "The Lord of the Rings: The Fellowship of the Ring", "Forrest Gump", "Star Wars", "The Emperor's New Groove", "Training Day", "Dairy of A Mad Black Woman", "The Notebook"]
 
 let randomMovieIndex = Math.floor(Math.random() * movies.length)
 console.log(movies)
 
-function randomizer(movies) { 
+function randomizer() { 
+    randomMovieIndex = Math.floor(Math.random() * movies.length)
     console.log(randomMovieIndex)
-    movie.src = movies[randomMovieIndex]
+    document.querySelector('#movie').src = movies[randomMovieIndex]
 
     console.log(movie.src)
     console.log(movies[randomMovieIndex])
@@ -26,8 +26,8 @@ function randomizer(movies) {
 
 randomBtn.addEventListener('click', randomizer)
 
-function answer(movies){
-  let randomTitle = movies[randomMovieIndex]
+function answer(){
+  let randomTitle = titles[randomMovieIndex]
   movieTitle.innerText = randomTitle
 
   console.log(randomTitle)
@@ -107,7 +107,7 @@ Array.from(trash).forEach(function(element) {
 
 
 
-Array.from(movies).forEach(function(element) {
+/* Array.from(movies).forEach(function(element) {
   element.addEventListener('click', function(e){
     const _id = e.target.dataset.id
     fetch('movies', {
@@ -127,7 +127,7 @@ Array.from(movies).forEach(function(element) {
       window.location.reload(true)
     })
   });
-});
+}); */
 
 
 
